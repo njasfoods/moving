@@ -1,13 +1,22 @@
 'use client'
 import { useFormContext } from '@/context/FormContext';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const SuccessPage = () => {
     const { state } = useFormContext();
-    const {userInfo:{
-        name, email
-    }} = state
+    const {userInfo} = state
+
+    const [uname, setName] = useState('')
+    const [uemail, setEmail] = useState('')
+
+    useEffect(()=>{
+        if(userInfo.name){
+            setName(userInfo.name)
+            setEmail(userInfo.email)
+        }
+       
+    },[])
 
   return (
     <div className='min-h-screen flex flex-col justify-center items-center max-w-md mx-auto px-6 text-center'>
@@ -17,8 +26,8 @@ const SuccessPage = () => {
   </svg>
   
     </div>
-      <h1 className='text-lg mb-4'>{`Hello, ${name}!`}</h1>
-      <p>{`An email has been sent to ${email}. Thank you for using our service.`}</p>
+      <h1 className='text-lg mb-4'>{`Hello, ${uname}!`}</h1>
+      <p>{`An email has been sent to ${uemail}. Thank you for using our service.`}</p>
       <Link href={'/'} className='mt-4 text-primary underline'>Back to home</Link>
     </div>
   );

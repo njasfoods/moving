@@ -11,13 +11,13 @@ import Image from "next/image";
             </div>
             <div className=" col-span-1 p-8">
                 <div className="w-full h-72 relative mx-auto">
-                    <Image src={'/moving.jpg'} fill className="object-cover"/>
+                    <Image src={'/companyteam.jpg'} priority  fill alt="team" className="object-cover"/>
                 </div>
             </div>
 
              <div className=" col-span-1 p-8">
                 <div className="w-full h-72 relative mx-auto">
-                    <Image src={'/moving.jpg'} fill className="object-cover"/>
+                    <Image src={'/integrity.jpg'} priority fill alt="integrity" className="object-cover"/>
                 </div>
             </div>
             <div className=" col-span-1 p-8">

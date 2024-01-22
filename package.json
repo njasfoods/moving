@@ -9,13 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
-    "@mui/icons-material": "^5.15.4",
+    "@mui/icons-material": "^5.15.5",
+    "@mui/material": "^5.15.5",
+    "autosuggest-highlight": "^3.3.4",
+    "axios": "^1.6.5",
+    "classnames": "^2.5.1",
+    "firebase": "^10.7.2",
+    "framer-motion": "^10.18.0",
+    "geolib": "^3.3.4",
+    "js-cookie": "^3.0.5",
+    "leaflet": "^1.9.4",
     "next": "14.0.4",
+    "nodemailer": "^6.9.8",
+    "opencage-api-client": "^1.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-autosuggest": "^10.1.0",
+    "react-dom": "^18",
+    "react-hook-form": "^7.49.3",
+    "react-leaflet": "^4.2.1",
+    "react-leaflet-cluster": "^2.1.0",
+    "react-places-autocomplete": "^7.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

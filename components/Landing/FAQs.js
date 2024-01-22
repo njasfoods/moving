@@ -1,6 +1,7 @@
 'use client'
 // components/FAQs.js
 import { Disclosure } from '@headlessui/react';
+import { Add, PlusOne } from '@mui/icons-material';
 import React from 'react';
 
 const faqsData = [
@@ -33,10 +34,12 @@ const faqsData = [
 
 const FAQs = () => {
   return (
-    <section className="bg-white dark:bg-gray-900" id='faqs'>
-    <div className="container px-6 py-24 sm:py-32 lg:px-8 mx-auto">
+    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8" id='faqs'>
+    <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.tertiary),white)] opacity-5" />
+    <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[23.5deg] bg-white shadow-xl shadow-tertiary/5 ring-1 ring-tertiary/30 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+    <div className="container mx-auto">
       <h1 className="text-2xl font-bold text-gray-800 lg:text-3xl dark:text-white">
-        FAQ&apos;s
+        Frequently Asked Questions
       </h1>
 
       <hr className="my-6 border-gray-200 dark:border-gray-700" />
@@ -47,20 +50,26 @@ const FAQs = () => {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex items-center focus:outline-none">
-                  <svg
-                    className="flex-shrink-0 w-6 h-6 text-blue-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M20 12H4"
-                    ></path>
-                  </svg>
+                {
+                  open ?   <svg
+                  className="flex-shrink-0 w-6 h-6 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M20 12H4"
+                  ></path>
+                </svg>
+                    :
+                <Add className='text-primary'/>
+
+                }
+                
 
                   <h1 className="mx-4 text-xl text-gray-800 dark:text-white">
                     {faq.question}
@@ -69,7 +78,7 @@ const FAQs = () => {
 
                 <Disclosure.Panel>
                   <div className="flex mt-8 md:mx-10">
-                    <span className="border border-blue-500"></span>
+                    <span className="border border-primary"></span>
 
                     <p className="max-w-3xl px-4 text-gray-600 dark:text-gray-300">
                       {faq.answer}

@@ -43,14 +43,17 @@ const LocationAutocomplete = ({ onSelectLocation, inputName }) => {
           `https://geocode.search.hereapi.com/v1/autocomplete?q=${query}&apiKey=${process.env.NEXT_PUBLIC_HERE_API_KEY}`
         );
             
-      
-            if (response.data && response.data.items) {
+        if (isMounted.current) {
+
+             if (response.data && response.data.items) {
                 // Filter out the selected location from the suggestions
                 const filteredSuggestions = response.data.items.filter(
                   (location) => location.address.label !== query
                 );
                 setSuggestions(filteredSuggestions);
               }
+        }
+           
         
       } catch (error) {
         console.error('Error fetching suggestions:', error);

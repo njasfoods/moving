@@ -40,7 +40,7 @@ const LocationAutocomplete = ({ onSelectLocation, inputName }) => {
     const fetchSuggestions = async () => {
       try {
         const response = await axios.get(
-          `https://geocode.search.hereapi.com/v1/autocomplete?q=${query}&apiKey=${process.env.NEXT_PUBLIC_HERE_API_KEY}`
+          `https://autocomplete.search.hereapi.com/v1/autocomplete?q=${query}&apiKey=${process.env.NEXT_PUBLIC_HERE_API_KEY}`
         );
             
         if (isMounted.current) {

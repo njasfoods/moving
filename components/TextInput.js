@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Search } from '@mui/icons-material';
 
@@ -7,6 +7,7 @@ const apiKey = '0ec14fb8885e4d44b7025b2304762e06';
 const LocationAutocomplete = ({ onSelectLocation, inputName }) => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const isMounted = useRef(true);
 
   const getAddressCoordinates = async (address, inputName) => {
     try {
@@ -41,8 +42,8 @@ const LocationAutocomplete = ({ onSelectLocation, inputName }) => {
         const response = await axios.get(
           `https://geocode.search.hereapi.com/v1/autocomplete?q=${query}&apiKey=${process.env.NEXT_PUBLIC_HERE_API_KEY}`
         );
-
-        if (response.data && response.data.items) {
+            
+      
             if (response.data && response.data.items) {
                 // Filter out the selected location from the suggestions
                 const filteredSuggestions = response.data.items.filter(
@@ -50,7 +51,7 @@ const LocationAutocomplete = ({ onSelectLocation, inputName }) => {
                 );
                 setSuggestions(filteredSuggestions);
               }
-        }
+        
       } catch (error) {
         console.error('Error fetching suggestions:', error);
       }
